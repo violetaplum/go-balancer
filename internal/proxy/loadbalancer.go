@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"go-balancer/config"
+	"github.com/violetaplum/go-balancer/config"
 	"sync"
 	"time"
 )

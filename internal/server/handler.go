@@ -1,7 +1,7 @@
 package server
 
 import (
-	"go-balancer/internal/proxy"
+	"github.com/violetaplum/go-balancer/internal/proxy"
 	"io"
 	"net/http"
 )

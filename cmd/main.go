@@ -1,9 +1,9 @@
 package main
 
 import (
-	lbConfig "go-balancer/config"
-	"go-balancer/internal/proxy"
-	"go-balancer/internal/server"
+	lbConfig "github.com/violetaplum/go-balancer/config"
+	"github.com/violetaplum/go-balancer/internal/proxy"
+	"github.com/violetaplum/go-balancer/internal/server"
 	"log"
 	"net/http"
 )

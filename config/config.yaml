@@ -1,11 +1,11 @@
 nodes:
-  - url: "http://xxxxxxxxx1.com"
+  - url: "https://api.openai.com/v1/models"
     max_bpm: 1000000
     max_rpm: 100
-  - url: "http://xxxxxxxxx2.com"
+  - url: "https://api.openai.com/v1/models"
     max_bpm: 1500000
     max_rpm: 150
-  - url: "http://xxxxxxxxx3.com"
+  - url: "https://api.openai.com/v1/models"
     max_bpm: 2000000
     max_rpm: 200
 port: "8080"
