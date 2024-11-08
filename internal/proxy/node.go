@@ -15,7 +15,7 @@ type Node struct {
 	mu            sync.Mutex
 }
 
-func (n *Node) CanHandle(bodySize int32) bool {
+func (n *Node) GetNode(bodySize int32) bool {
 	n.mu.Lock()
 	defer n.mu.Unlock()
 

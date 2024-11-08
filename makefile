@@ -2,5 +2,7 @@
 build:
 	go build -o proxy ./cmd
 
-docker_build:
-	docker build -f ./deployments/Dockerfile .
+
+test:
+	docker-compose -f ./deployments/docker-compose.yml up --build
+	go test ./... -v

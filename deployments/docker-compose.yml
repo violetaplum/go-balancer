@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  load-balancer:
+    build:
+      context: ..
+      dockerfile: deployments/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../config:/app/config
+    depends_on:
+      - mock-server-1
+      - mock-server-2
+      - mock-server-3
+
+  mock-server-1:
+    image: ealen/echo-server
+    ports:
+      - "3000:80"
+  mock-server-2:
+    image: ealen/echo-server
+    ports:
+      - "3001:80"
+  mock-server-3:
+    image: ealen/echo-server
+    ports:
+      - "3002:80"
+networks:
+  default:
+    name: load-balancer-test

@@ -16,7 +16,7 @@ func NewHandler(lb *proxy.LoadBalancer) *Handler {
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	bodySize := int32(req.ContentLength)
-	node := h.lb.GetNextAvailableNode(bodySize)
+	node := h.lb.GetNextNode(bodySize)
 	if node == nil {
 		http.Error(w, "There's no available nodes..", http.StatusServiceUnavailable)
 		return

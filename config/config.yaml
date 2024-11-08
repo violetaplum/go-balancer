@@ -1,11 +1,11 @@
 nodes:
-  - url: "https://api.openai.com/v1/models"
-    max_bpm: 1000000
+  - url: "http://mock-server-1"
+    max_bpm: 3000
     max_rpm: 100
-  - url: "https://api.openai.com/v1/models"
-    max_bpm: 1500000
+  - url: "http://mock-server-2"
+    max_bpm: 5000
     max_rpm: 150
-  - url: "https://api.openai.com/v1/models"
+  - url: "http://mock-server-3"
     max_bpm: 2000000
     max_rpm: 200
 port: "8080"

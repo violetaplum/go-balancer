@@ -1,6 +1,7 @@
 package proxy
 
 import (
+	"github.com/samber/lo"
 	"github.com/violetaplum/go-balancer/config"
 	"sync"
 	"time"
@@ -13,23 +14,24 @@ type LoadBalancer struct {
 
 func NewLoadBalancer(configs []config.NodeConfig) *LoadBalancer {
 	lb := &LoadBalancer{}
-	for _, cf := range configs {
-		lb.nodes = append(lb.nodes, &Node{
-			URL:           cf.URL,
-			MaxBPM:        cf.MaxBPM,
-			MaxRPM:        cf.MaxRPM,
+	lb.nodes = lo.FilterMap(configs, func(cfg config.NodeConfig, _ int) (*Node, bool) {
+		return &Node{
+			URL:           cfg.URL,
+			MaxBPM:        cfg.MaxBPM,
+			MaxRPM:        cfg.MaxRPM,
 			lastResetTime: time.Now(),
-		})
-	}
+		}, true
+	})
+
 	return lb
 }
 
-func (lb *LoadBalancer) GetNextAvailableNode(bodySize int32) *Node {
+func (lb *LoadBalancer) GetNextNode(bodySize int32) *Node {
 	lb.mu.Lock()
 	defer lb.mu.Unlock()
 
 	for _, node := range lb.nodes {
-		if node.CanHandle(bodySize) {
+		if node.GetNode(bodySize) {
 			return node
 		}
 	}
