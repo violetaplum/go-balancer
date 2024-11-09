@@ -33,9 +33,6 @@ go-balancer/
 │   │   └── node.go          # 노드 구현
 │   └── server/           # 서버 관련
 │       └── handler.go    # HTTP 핸들러
-├── pkg/                   # 공용 패키지
-│   └── utils/            # 유틸리티 함수
-│       └── utils.go
 └── tests/                # 테스트 파일
     ├── proxy_test.go     # 프록시 테스트
     └── server_test.go    # 서버 테스트
@@ -101,7 +98,7 @@ go test ./internal/server
 
 ## Docker 지원
 
-프로젝트는 Docker를 통한 배포를 지원합니다. Dockerfile이 제공되며 다음 명령으로 빌드하고 실행할 수 있습니다:
+프로젝트는 Docker를 통한 배포를 지원합니다. Dockerfile이 제공되며 다음 명령으로 빌드하고 실행할 수 있습니다
 
 ```bash
 docker build -t go-balancer .
