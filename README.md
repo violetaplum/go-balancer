@@ -53,7 +53,7 @@ go build -o proxy cmd/main.go
 
 ## 설정 방법
 
-`config/config.yaml` 파일에서 다음 설정을 구성할 수 있습니다:
+`config/config.yaml` 파일에서 다음 설정을 구성할 수 있습니다 (예시)
 
 ```yaml
 nodes:
